@@ -1,0 +1,46 @@
+:root{
+  --bg:#0b0c0f; --text:#e7e9ee; --muted:#9aa0a6; --card:#12141a; --line:#22242c;
+  --brand:#6aa7ff; --brand2:#9b7bff;
+}
+@media (prefers-color-scheme: light){
+  :root{ --bg:#ffffff; --text:#111418; --muted:#5f6b7a; --card:#f6f7f9; --line:#e6e8ee; --brand:#2a66f6; --brand2:#7a5cff;}
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font:16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background:var(--bg); color:var(--text);
+}
+a{color:var(--brand); text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:960px; margin:0 auto; padding:24px}
+
+.site-header{border-bottom:1px solid var(--line); background:rgba(0,0,0,0.1); backdrop-filter:saturate(150%) blur(6px); position:sticky; top:0; z-index:10}
+.nav{display:flex; align-items:center; justify-content:space-between; padding:12px 24px}
+.brand{font-weight:700; font-size:20px; background:linear-gradient(90deg,var(--brand),var(--brand2)); -webkit-background-clip:text; background-clip:text; color:transparent}
+.links a{margin-left:16px; color:var(--text); opacity:.9}
+.links a[aria-current="page"]{border-bottom:2px solid var(--brand); padding-bottom:2px}
+
+.hero{padding:56px 0 12px}
+.title{font-size:40px; margin:0 0 8px}
+.grad{background:linear-gradient(90deg,var(--brand),var(--brand2)); -webkit-background-clip:text; background-clip:text; color:transparent}
+.subtitle{color:var(--muted); margin:0 0 16px}
+.lede{max-width:720px; font-size:18px; color:var(--text)}
+
+.cta-row{display:flex; gap:12px; margin-top:18px}
+.btn{display:inline-block; border:1px solid var(--brand); padding:10px 14px; border-radius:12px; font-weight:600}
+.btn.ghost{background:transparent}
+.btn.small{padding:6px 10px; border-radius:10px; font-size:14px}
+
+.section-title{font-size:24px; margin:28px 0 12px}
+
+.cards .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:16px}
+.card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px}
+.card h3{margin-top:0}
+.card p{color:var(--muted)}
+.more{display:inline-block; margin-top:6px}
+
+.project{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px; margin:16px 0}
+.meta{color:var(--muted); font-size:14px}
+
+.site-footer{border-top:1px solid var(--line); margin-top:32px; padding:18px 24px; text-align:center; color:var(--muted)}

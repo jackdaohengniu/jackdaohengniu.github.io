@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects — Jack Niu</title>
+  <meta name="description" content="Projects by Jack Niu">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="/">JN</a>
+      <div class="links">
+        <a href="/">Home</a>
+        <a href="/projects.html" aria-current="page">Projects</a>
+        <a href="/cv.pdf">CV</a>
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="section-title">Projects</h1>
+
+    <article class="project">
+      <header>
+        <h2>Tensor-Network Quantum Simulator</h2>
+        <div class="meta">Python · JAX · cuTensorNet — 2025</div>
+      </header>
+      <p>
+        Built a tensor-network pipeline for compressing and simulating NISQ circuits. Achieved exponential
+        reductions in qubit/gate resources for specific classes of circuits; enabled larger instances of VQE and
+        shadow-tomography workloads.
+      </p>
+      <ul>
+        <li>State compression (MPS/PEPS variants) with adaptive truncation</li>
+        <li>Differentiable contraction paths for hybrid training</li>
+        <li>CLI + notebook examples</li>
+      </ul>
+      <p><a class="btn small" href="#" target="_blank" rel="noopener">Code</a>
+         <a class="btn ghost small" href="#" target="_blank" rel="noopener">Paper/Notes</a></p>
+    </article>
+
+    <article class="project">
+      <header>
+        <h2>QEC-Informed Quantum Repeater</h2>
+        <div class="meta">Theory · Simulation — 2024</div>
+      </header>
+      <p>
+        Evaluated generalized bicycle codes within repeater protocols; analyzed thresholds, resource overhead,
+        and practical integration with photonic links.
+      </p>
+      <ul>
+        <li>Monte Carlo error models with erasures + depolarizing noise</li>
+        <li>Decoder benchmarks and distance scaling</li>
+        <li>Integration notes for hardware constraints</li>
+      </ul>
+      <p><a class="btn small" href="#" target="_blank" rel="noopener">Slides</a></p>
+    </article>
+
+    <article class="project">
+      <header>
+        <h2>RL for Quantum Control</h2>
+        <div class="meta">Control · RL — 2024</div>
+      </header>
+      <p>
+        Trained agents to synthesize pulses for target unitaries on a dispersive cQED Hamiltonian, improving
+        gate fidelity and leakage suppression under constraints.
+      </p>
+      <ul>
+        <li>GRAPE baselines + PPO/TD3 agents</li>
+        <li>Robustness to drift and T1/T2 variation</li>
+        <li>Open-source pulse library interface</li>
+      </ul>
+      <p><a class="btn small" href="#" target="_blank" rel="noopener">Poster</a></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Jack Niu · <a href="mailto:you@example.com">you@example.com</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

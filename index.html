@@ -1,1 +1,71 @@
-<!doctype html><title>Hi</title>Hi from GitHub Pages
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jack Niu — Home</title>
+  <meta name="description" content="Personal site for Jack Niu — Quantum computing, ML, and control.">
+  <meta property="og:title" content="Jack Niu — Home">
+  <meta property="og:description" content="Personal site for Jack Niu — Quantum computing, ML, and control.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="/">JN</a>
+      <div class="links">
+        <a href="/">Home</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/cv.pdf">CV</a>
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1 class="title">Hi, I’m <span class="grad">Jack Niu</span> 👋</h1>
+      <p class="subtitle">Quantum computing · ML · Control theory</p>
+      <p class="lede">
+        I work on near-term quantum algorithms, tensor-network simulation, and error correction.
+        This site hosts my projects, notes, and links.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="/projects.html">See Projects</a>
+        <a class="btn ghost" href="/cv.pdf">Download CV</a>
+      </div>
+    </section>
+
+    <section class="cards">
+      <h2 class="section-title">Featured Work</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Tensor-Network Quantum Simulator</h3>
+          <p>Compression + contraction pipeline for realistic NISQ circuits with major qubit/gate savings.</p>
+          <a class="more" href="#" aria-label="Read more about tensor-network simulator">Read more →</a>
+        </article>
+        <article class="card">
+          <h3>QEC-Informed Quantum Repeater</h3>
+          <p>Design and analysis of error-corrected repeater protocols for near-term quantum networks.</p>
+          <a class="more" href="#" aria-label="Read more about QEC repeater">Read more →</a>
+        </article>
+        <article class="card">
+          <h3>RL for Quantum Control</h3>
+          <p>Policy optimization for pulse engineering with robustness to drift and decoherence.</p>
+          <a class="more" href="#" aria-label="Read more about RL control">Read more →</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Jack Niu · <a href="mailto:you@example.com">you@example.com</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
