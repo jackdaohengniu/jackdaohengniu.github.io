@@ -6,10 +6,18 @@
   <title>Jack (Daoheng) Niu — Home</title>
   <meta name="description" content="Personal site for Jack (Daoheng) Niu — Quantum computing, ML, and control.">
   <meta property="og:title" content="Jack (Daoheng) Niu — Home">
-  <meta property="og:description" content="Personal site for Jack (Daoheng) Niu — Quantum computing, Quantum information, Deep Learning, LLM.">
+  <meta property="og:description" content="Personal site for Jack (Daoheng) Niu — Quantum computing, ML, and control.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.png">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .hero-photo {
+      max-width: 180px;
+      border-radius: 50%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -26,37 +34,15 @@
 
   <main class="container">
     <section class="hero">
+      <!-- PHOTO PLACEHOLDER -->
+      <img src="assets/profile.jpg" alt="Jack (Daoheng) Niu" class="hero-photo">
+
       <h1 class="title">Hi, I’m <span class="grad">Jack (Daoheng) Niu</span></h1>
       <p class="subtitle">Quantum computing · ML · Control theory</p>
       <p class="lede">
         I work on near-term quantum algorithms, tensor-network simulation, and error correction.
         This site hosts my projects, notes, and links.
       </p>
-      <div class="cta-row">
-        <a class="btn" href="/projects.html">See Projects</a>
-        <a class="btn ghost" href="/cv.pdf">Download CV</a>
-      </div>
-    </section>
-
-    <section class="cards">
-      <h2 class="section-title">Featured Work</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Tensor-Network Quantum Simulator</h3>
-          <p>Compression + contraction pipeline for realistic NISQ circuits with major qubit/gate savings.</p>
-          <a class="more" href="#" aria-label="Read more about tensor-network simulator">Read more →</a>
-        </article>
-        <article class="card">
-          <h3>QEC-Informed Quantum Repeater</h3>
-          <p>Design and analysis of error-corrected repeater protocols for near-term quantum networks.</p>
-          <a class="more" href="#" aria-label="Read more about QEC repeater">Read more →</a>
-        </article>
-        <article class="card">
-          <h3>RL for Quantum Control</h3>
-          <p>Policy optimization for pulse engineering with robustness to drift and decoherence.</p>
-          <a class="more" href="#" aria-label="Read more about RL control">Read more →</a>
-        </article>
-      </div>
     </section>
   </main>
 
