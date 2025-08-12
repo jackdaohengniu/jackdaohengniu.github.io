@@ -24,6 +24,17 @@
       max-width: 180px;
       border-radius: 12px;
     }
+    .photo-collage {
+  column-count: 4;       /* how many columns in desktop view */
+  column-gap: 4px;       /* minimal space between columns */
+}
+
+.photo-collage img {
+  width: 100%;
+  display: block;
+  margin-bottom: 4px;    /* minimal space between images vertically */
+  border-radius: 4px;    /* optional rounded corners */
+}
     /* offset so headings aren't hidden under sticky header */
     .anchor-section { scroll-margin-top: 84px; }
   </style>
@@ -126,17 +137,16 @@ I am currently in my sixth year of the Physics Ph.D. program at UT Austin. Previ
   </p>
 
   <!-- Photos -->
-  <div class="photo-wall">
-    <figure class="item m"><img src="assets/photo-01.jpg" alt="Photo 1" loading="lazy"></figure>
-    <figure class="item s"><img src="assets/photo-02.jpg" alt="Photo 2" loading="lazy"></figure>
-    <figure class="item l"><img src="assets/photo-03.jpg" alt="Photo 3" loading="lazy"></figure>
-    <figure class="item m"><img src="assets/photo-04.jpg" alt="Photo 4" loading="lazy"></figure>
-    <figure class="item s"><img src="assets/photo-05.jpg" alt="Photo 5" loading="lazy"></figure>
-    <figure class="item l"><img src="assets/photo-06.jpg" alt="Photo 6" loading="lazy"></figure>
-    <figure class="item m"><img src="assets/photo-07.jpg" alt="Photo 7" loading="lazy"></figure>
-    <figure class="item s"><img src="assets/photo-08.jpg" alt="Photo 8" loading="lazy"></figure>
-    <figure class="item l"><img src="assets/photo-09.jpg" alt="Photo 9" loading="lazy"></figure>
-  </div>
+  <div class="photo-collage">
+  <img src="assets/photo-01.jpg" alt="Photo 1">
+  <img src="assets/photo-02.jpg" alt="Photo 2">
+  <img src="assets/photo-03.jpg" alt="Photo 3">
+  <img src="assets/photo-04.jpg" alt="Photo 4">
+  <img src="assets/photo-05.jpg" alt="Photo 5">
+  <!-- add more <img> tags for your photos -->
+</div>
+
+
 </section>
 
 <style>
