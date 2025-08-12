@@ -113,19 +113,72 @@ I am currently in my sixth year of the Physics Ph.D. program at UT Austin. Previ
     </section>
 
     <!-- Miscellaneous -->
-   <!-- Miscellaneous -->
 <section class="anchor-section" id="misc" style="margin-top:28px">
   <h1 class="section-title">Miscellaneous</h1>
   <p>
     I love life — in all its dimensions. For me, life is both an inner journey and an interaction with the world around us.  
-<br><br>
-On the inside, I believe life thrives through movement, challenge, and the constant pursuit of growth. Sports have always been a big part of my life, shaping both my body and mind. I have tried many — basketball, soccer, flag football, ultimate frisbee, swimming, skiing — but I am best at racquet sports. I started playing table tennis and badminton when I was about six years old, learned tennis when I started college, and now play pickleball regularly with friends. I love competition and pushing myself to the limit: in 2017, I completed the Detroit Half Marathon, and I also thrive in strategic competition, such as playing Texas Hold’em poker in both cash games and tournaments. Whether physical or mental, I enjoy testing my skills in high-stakes environments.  
-<br><br>
-On the outside, I find energy and inspiration in nature. I love national parks, hiking, and exploring the outdoors. Being in nature reminds me of the harmony between human life and the larger rhythms of the world.  
-<br><br>
-At a deeper level, I am fascinated by the patterns and principles that underlie all things — what in my name is expressed as the “Dao” (道). Whether through sports, nature, or intellectual exploration, I see life as a continuous process of discovery, balance, and connection.
+    <br><br>
+    On the inside, I believe life thrives through movement, challenge, and the constant pursuit of growth. Sports have always been a big part of my life, shaping both my body and mind. I have tried many — basketball, soccer, flag football, ultimate frisbee, swimming, skiing — but I am best at racquet sports. I started playing table tennis and badminton when I was about six years old, learned tennis when I started college, and now play pickleball regularly with friends. I love competition and pushing myself to the limit: in 2017, I completed the Detroit Half Marathon, and I also thrive in strategic competition, such as playing Texas Hold’em poker in both cash games and tournaments. Whether physical or mental, I enjoy testing my skills in high-stakes environments.  
+    <br><br>
+    On the outside, I find energy and inspiration in nature. I love national parks, hiking, and exploring the outdoors. Being in nature reminds me of the harmony between human life and the larger rhythms of the world.  
+    <br><br>
+    At a deeper level, I am fascinated by the patterns and principles that underlie all things — what in my name is expressed as the “Dao” (道). Whether through sports, nature, or intellectual exploration, I see life as a continuous process of discovery, balance, and connection.
   </p>
+
+  <!-- Photos -->
+  <div class="photo-wall">
+    <figure class="item m"><img src="assets/photo-01.jpg" alt="Photo 1" loading="lazy"></figure>
+    <figure class="item s"><img src="assets/photo-02.jpg" alt="Photo 2" loading="lazy"></figure>
+    <figure class="item l"><img src="assets/photo-03.jpg" alt="Photo 3" loading="lazy"></figure>
+    <figure class="item m"><img src="assets/photo-04.jpg" alt="Photo 4" loading="lazy"></figure>
+    <figure class="item s"><img src="assets/photo-05.jpg" alt="Photo 5" loading="lazy"></figure>
+    <figure class="item l"><img src="assets/photo-06.jpg" alt="Photo 6" loading="lazy"></figure>
+    <figure class="item m"><img src="assets/photo-07.jpg" alt="Photo 7" loading="lazy"></figure>
+    <figure class="item s"><img src="assets/photo-08.jpg" alt="Photo 8" loading="lazy"></figure>
+    <figure class="item l"><img src="assets/photo-09.jpg" alt="Photo 9" loading="lazy"></figure>
+  </div>
 </section>
+
+<style>
+  .photo-wall{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+    align-items: start;
+  }
+  .photo-wall .item{
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid var(--line, #22242c);
+    background: var(--card, #12141a);
+    box-shadow: 0 2px 10px rgba(0,0,0,.12);
+    transform: rotate(var(--tilt, 0deg));
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .photo-wall .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .photo-wall .item.s{ aspect-ratio: 4 / 3; }
+  .photo-wall .item.m{ aspect-ratio: 1 / 1; }
+  .photo-wall .item.l{ aspect-ratio: 3 / 4; }
+  .photo-wall .item:nth-child(6n+1){ --tilt: 0.6deg; }
+  .photo-wall .item:nth-child(6n+2){ --tilt: -0.8deg; }
+  .photo-wall .item:nth-child(6n+3){ --tilt: 0.4deg; }
+  .photo-wall .item:nth-child(6n+4){ --tilt: -0.6deg; }
+  .photo-wall .item:nth-child(6n+5){ --tilt: 0.2deg; }
+  .photo-wall .item:nth-child(6n){   --tilt: -0.3deg; }
+  .photo-wall .item:hover{
+    transform: rotate(calc(var(--tilt, 0deg) * 0.3)) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  }
+  @media (min-width: 900px){
+    .photo-wall{ gap: 14px; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  }
+</style>
   </main>
 
   <footer class="site-footer">
