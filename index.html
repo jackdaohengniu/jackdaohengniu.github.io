@@ -24,37 +24,35 @@
       max-width: 180px;
       border-radius: 12px;
     }
-    /* make anchor targets not hide under sticky header */
+    /* offset so headings aren't hidden under sticky header */
     .anchor-section { scroll-margin-top: 84px; }
   </style>
 </head>
-<body id="top">
+<body>
   <header class="site-header">
     <nav class="nav">
-      <a class="brand" href="#top">JN</a>
+      <a class="brand" href="#" data-target="top">JN</a>
       <div class="links">
-        <a href="#top">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#misc">Miscellaneous</a>
+        <a href="#" data-target="top">Home</a>
+        <a href="#" data-target="projects">Projects</a>
+        <a href="#" data-target="misc">Miscellaneous</a>
         <a href="https://github.com/dh-dz" target="_blank" rel="noopener">GitHub</a>
       </div>
     </nav>
   </header>
 
-  <main class="container">
+  <main class="container" id="top">
     <!-- About / Hero -->
     <section class="hero anchor-section" id="about">
       <div class="hero-text">
         <h1 class="title">Hi, I’m <span class="grad">Jack (Daoheng) Niu</span></h1>
         <p class="subtitle">Quantum computing · Quantum Information · Deep Learning · LLM</p>
         <p class="lede">
-          I work on quantum error correction, quantum tensor network simulation, quantum algorithms, random quantum circuit and quantum supremacy. I have interests in a wide of areas in quantum computing and quantum information such as near-term applications of quantum computing, quantum communication, quantum complexity theory, quantum machine learning, etc.
-        </p>
-        <p class="lede">
+          I work on quantum error correction, quantum tensor network simulation, quantum algorithms, random quantum circuit and quantum supremacy. I have interests in a wide of areas in quantum computing and quantum information such as near-term applications of quantum computing, quantum communication, quantum complexity theory, quantum machine learning, etc. 
+          <br><br>
           Besides my quantum research, I have also huge interests in deep learning and LLM. I have finished several exciting side projects. More coming up in the Projects section.
-        </p>
-        <p class="lede">
-          Currently I am a 6-yr physics PhD at UT Austin. Previously I obtained my B.S. (high honor) with double major in physics and pure math from University of Michigan at Ann Arbor.
+          <br><br>
+          Currently I am a 6-yr physics Phd at UT Austin. Previously I obtain my B.S. (high honor) with double major in physics and pure math from University of Michigan at Ann Arbor. 
         </p>
       </div>
       <img src="assets/profile.png" alt="Jack (Daoheng) Niu" class="hero-photo">
@@ -139,22 +137,31 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Optional: highlight current nav item while scrolling
-    const sections = ["top","projects","misc"];
-    const links = [...document.querySelectorAll(".links a")];
-    const opts = { rootMargin: "-50% 0px -40% 0px", threshold: 0 };
-    const handler = entries => {
+    // Smooth scroll without changing URL
+    document.querySelectorAll('.links a[data-target], .brand[data-target]')
+      .forEach(link => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const id = link.getAttribute('data-target');
+          const el = id === 'top' ? document.body : document.getElementById(id);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+    // Optional: highlight current nav item while scrolling (no URL change)
+    const links = [...document.querySelectorAll('.links a[data-target]')];
+    const map = Object.fromEntries(links.map(a => [a.getAttribute('data-target'), a]));
+    const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
-          links.forEach(a => a.removeAttribute("aria-current"));
-          const id = e.target.id === "about" ? "top" : e.target.id;
-          const match = links.find(a => a.getAttribute("href") === "#" + id);
-          if (match) match.setAttribute("aria-current","page");
+          links.forEach(a => a.removeAttribute('aria-current'));
+          const key = e.target.id === 'about' ? 'top' : e.target.id;
+          if (map[key]) map[key].setAttribute('aria-current','page');
         }
       });
-    };
-    const obs = new IntersectionObserver(handler, opts);
-    ["about","projects","misc"].forEach(id => {
+    }, { rootMargin: "-50% 0px -40% 0px", threshold: 0 });
+
+    ['about','projects','misc'].forEach(id => {
       const el = document.getElementById(id);
       if (el) obs.observe(el);
     });
