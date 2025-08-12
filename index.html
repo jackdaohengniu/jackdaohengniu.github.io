@@ -11,54 +11,124 @@
   <link rel="icon" href="assets/favicon.png">
   <link rel="stylesheet" href="style.css">
   <style>
+    html { scroll-behavior: smooth; }
     .hero {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 30px;
     }
-    .hero-text {
-      flex: 1 1 300px;
-    }
+    .hero-text { flex: 1 1 300px; }
     .hero-photo {
       flex: 0 0 180px;
       max-width: 180px;
       border-radius: 12px;
     }
+    /* make anchor targets not hide under sticky header */
+    .anchor-section { scroll-margin-top: 84px; }
   </style>
 </head>
-<body>
+<body id="top">
   <header class="site-header">
     <nav class="nav">
-      <a class="brand" href="/">JN</a>
+      <a class="brand" href="#top">JN</a>
       <div class="links">
-        <a href="/">Home</a>
-        <a href="/projects.html">Projects</a>
-        <a href="/misc.html">Miscellaneous</a>
+        <a href="#top">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#misc">Miscellaneous</a>
         <a href="https://github.com/dh-dz" target="_blank" rel="noopener">GitHub</a>
       </div>
     </nav>
   </header>
 
   <main class="container">
-    <section class="hero">
+    <!-- About / Hero -->
+    <section class="hero anchor-section" id="about">
       <div class="hero-text">
-  <h1 class="title">Hi, I’m <span class="grad">Jack (Daoheng) Niu</span></h1>
-  <p class="subtitle">Quantum computing · Quantum Information · Deep Learning · LLM</p>
-
-  <p class="lede">
-    I work on quantum error correction, quantum tensor network simulation, quantum algorithms, random quantum circuit and quantum supremacy. I have interests in a wide of areas in quantum computing and quantum information such as near-term applications of quantum computing, quantum communication, quantum complexity theory, quantum machine learning ...
-  </p>
-
-  <p class="lede">
-    Besides my quantum research, I have also huge interests in deep learning and LLM. I have finished several exciting side projects. More coming up in the Projects section.
-  </p>
-
-  <p class="lede">
-    Currently I am a 6-th year physics PhD at UT Austin. Previously I obtained my B.S. (high honor) with double majors in Physics and Pure Math from the University of Michigan at Ann Arbor.
-  </p>
-</div>
+        <h1 class="title">Hi, I’m <span class="grad">Jack (Daoheng) Niu</span></h1>
+        <p class="subtitle">Quantum computing · Quantum Information · Deep Learning · LLM</p>
+        <p class="lede">
+          I work on quantum error correction, quantum tensor network simulation, quantum algorithms, random quantum circuit and quantum supremacy. I have interests in a wide of areas in quantum computing and quantum information such as near-term applications of quantum computing, quantum communication, quantum complexity theory, quantum machine learning, etc.
+        </p>
+        <p class="lede">
+          Besides my quantum research, I have also huge interests in deep learning and LLM. I have finished several exciting side projects. More coming up in the Projects section.
+        </p>
+        <p class="lede">
+          Currently I am a 6-yr physics PhD at UT Austin. Previously I obtained my B.S. (high honor) with double major in physics and pure math from University of Michigan at Ann Arbor.
+        </p>
+      </div>
       <img src="assets/profile.png" alt="Jack (Daoheng) Niu" class="hero-photo">
+    </section>
+
+    <!-- Projects -->
+    <section class="anchor-section" id="projects" style="margin-top:28px">
+      <h1 class="section-title">Projects</h1>
+
+      <article class="project">
+        <header>
+          <h2>Tensor-Network Quantum Simulator</h2>
+          <div class="meta">Python · JAX · cuTensorNet — 2025</div>
+        </header>
+        <p>
+          Built a tensor-network pipeline for compressing and simulating NISQ circuits. Achieved exponential
+          reductions in qubit/gate resources for specific classes of circuits; enabled larger instances of VQE and
+          shadow-tomography workloads.
+        </p>
+        <ul>
+          <li>State compression (MPS/PEPS variants) with adaptive truncation</li>
+          <li>Differentiable contraction paths for hybrid training</li>
+          <li>CLI + notebook examples</li>
+        </ul>
+      </article>
+
+      <article class="project">
+        <header>
+          <h2>QEC-Informed Quantum Repeater</h2>
+          <div class="meta">Theory · Simulation — 2024</div>
+        </header>
+        <p>
+          Evaluated generalized bicycle codes within repeater protocols; analyzed thresholds, resource overhead,
+          and practical integration with photonic links.
+        </p>
+        <ul>
+          <li>Monte Carlo error models with erasures + depolarizing noise</li>
+          <li>Decoder benchmarks and distance scaling</li>
+          <li>Integration notes for hardware constraints</li>
+        </ul>
+      </article>
+
+      <article class="project">
+        <header>
+          <h2>RL for Quantum Control</h2>
+          <div class="meta">Control · RL — 2024</div>
+        </header>
+        <p>
+          Trained agents to synthesize pulses for target unitaries on a dispersive cQED Hamiltonian, improving
+          gate fidelity and leakage suppression under constraints.
+        </p>
+        <ul>
+          <li>GRAPE baselines + PPO/TD3 agents</li>
+          <li>Robustness to drift and T1/T2 variation</li>
+          <li>Open-source pulse library interface</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Miscellaneous -->
+    <section class="anchor-section" id="misc" style="margin-top:28px">
+      <h1 class="section-title">Miscellaneous</h1>
+      <section class="cards">
+        <div class="grid">
+          <article class="card">
+            <h3>Example Post or Resource</h3>
+            <p>A short description about this item. Could be a note, a talk, or a demo.</p>
+          </article>
+          <article class="card">
+            <h3>Another Interesting Item</h3>
+            <p>Another short description. Add anything that doesn’t fit “Projects”.</p>
+          </article>
+        </div>
+      </section>
     </section>
   </main>
 
@@ -68,6 +138,26 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Optional: highlight current nav item while scrolling
+    const sections = ["top","projects","misc"];
+    const links = [...document.querySelectorAll(".links a")];
+    const opts = { rootMargin: "-50% 0px -40% 0px", threshold: 0 };
+    const handler = entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(a => a.removeAttribute("aria-current"));
+          const id = e.target.id === "about" ? "top" : e.target.id;
+          const match = links.find(a => a.getAttribute("href") === "#" + id);
+          if (match) match.setAttribute("aria-current","page");
+        }
+      });
+    };
+    const obs = new IntersectionObserver(handler, opts);
+    ["about","projects","misc"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
   </script>
 </body>
 </html>
